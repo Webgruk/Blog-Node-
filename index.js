@@ -1,20 +1,25 @@
-const express = require('express')
-const path = require('path')
+import express from 'express'
+import { engine } from 'express-handlebars'
+
 const app = express()
 
 app.use(express.static('public'))
 
+app.engine('handlebars', engine())
+app.set('view engine', 'handlebars')
+app.set('views', './views')
+
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'Pages/index.html'))
+  res.render('index')
 })
 app.get('/about', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'Pages/about.html'))
+  res.render('about')
 })
 app.get('/contact', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'Pages/contact.html'))
+  res.render('contact')
 })
 app.get('/post', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'Pages/post.html'))
+  res.render('post')
 })
 
 app.listen(4000, () => {

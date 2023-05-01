@@ -1,6 +1,7 @@
 {
   "name": "blog_node",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
     "nodemon": "^2.0.22"
   }
 }
